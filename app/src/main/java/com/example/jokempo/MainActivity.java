@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,5 +28,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void jogar(View view){
 
+        // Inverter a imagem do jogador 1
+        jogador1.setScaleX(-1);
+
+        switch(view.getId()){
+            case(R.id.botaoPedra):
+                jogador1.setImageResource(R.drawable.pedra);
+                break;
+
+            case(R.id.botaoPapel):
+                jogador1.setImageResource(R.drawable.papel);
+                break;
+
+            case(R.id.botaoTesoura):
+                jogador1.setImageResource(R.drawable.tesoura);
+                break;
+        }
+
+        jogador2.setImageResource(R.drawable.interrogacao);
     }
 }
