@@ -10,22 +10,23 @@
     tools:layout_editor_absoluteY="-3dp">
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/jogador2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintBottom_toBottomOf="@+id/jogador1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/jogador1"
+        app:layout_constraintTop_toTopOf="@+id/jogador1"
         app:srcCompat="@drawable/interrogacao" />
 
-    <ImageView
-        android:id="@+id/imageView3"
+    <ImageButton
+        android:onClick="jogar"
+        android:id="@+id/botaoPedra"
         android:layout_width="0dp"
         android:layout_height="120dp"
         android:layout_marginStart="8dp"
@@ -33,47 +34,49 @@
         android:layout_marginBottom="16dp"
         android:background="#8CF807"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/botaoPapel"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/pedra" />
 
-    <ImageView
-        android:id="@+id/imageView"
+    <ImageButton
+        android:onClick="jogar"
+        android:id="@+id/botaoTesoura"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="#03A9F4"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/botaoPapel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/botaoPapel"
+        app:layout_constraintTop_toTopOf="@+id/botaoPapel"
         app:srcCompat="@drawable/tesoura" />
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <ImageButton
+        android:onClick="jogar"
+        android:id="@+id/botaoPapel"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#F44336"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/botaoPedra"
+        app:layout_constraintEnd_toStartOf="@+id/botaoTesoura"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/botaoPedra"
+        app:layout_constraintTop_toTopOf="@+id/botaoPedra"
         app:srcCompat="@drawable/papel" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/jogador1"
         android:layout_width="0dp"
         android:layout_height="400dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6"
+        app:layout_constraintBottom_toTopOf="@+id/botaoPedra"
+        app:layout_constraintEnd_toStartOf="@+id/jogador2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -87,7 +90,7 @@
         android:text="Jokempo"
         android:textSize="45sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintBottom_toTopOf="@+id/jogador1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,9 +100,9 @@
         android:id="@+id/imageView7"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintBottom_toTopOf="@+id/botaoPapel"
+        app:layout_constraintEnd_toEndOf="@+id/jogador2"
+        app:layout_constraintStart_toStartOf="@+id/jogador1"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/vs" />
 
