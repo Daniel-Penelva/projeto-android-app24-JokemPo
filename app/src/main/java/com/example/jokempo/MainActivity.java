@@ -2,6 +2,7 @@ package com.example.jokempo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -21,12 +22,19 @@ public class MainActivity extends AppCompatActivity {
     TextView resultado;
     Animation visivel, invisivel;
 
+    // Criando uma variavel para armazenar o valor dos jogadores
     int jogada1 = 0, jogada2=0;
+
+    // Objeto mediaPlayer para criar um som
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Capturando o som
+        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.alex_play);
 
        // Capturando o id do componente
         imagemPedra = findViewById(R.id.botaoPedra);
@@ -47,10 +55,11 @@ public class MainActivity extends AppCompatActivity {
         // Criando o evento da animação invisivel
         invisivel.setAnimationListener(new Animation.AnimationListener() {
 
-            // Animação para ser iniciada
+            // Animação para ser iniciada - primeiro evento iniciado
             @Override
             public void onAnimationStart(Animation animation) {
                 jogador2.setVisibility(View.VISIBLE);
+                resultado.setText("");
             }
 
             // Animação para ser encerrada
@@ -94,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void jogar(View view){
+
+        // Executa o som no momento que toca no botão
+        tocaSom();
 
         // Inverter a imagem do jogador 1
         jogador1.setScaleX(-1);
@@ -157,5 +169,29 @@ public class MainActivity extends AppCompatActivity {
             //Toast.makeText(this, "Perdeu!", Toast.LENGTH_LONG).show();
             resultado.setText("Perdeu!");
         }
+    }
+
+    public void tocaSom(){
+
+        if(mediaPlayer != null){
+            mediaPlayer.start();
+        }
+    }
+
+    /* Dica: Para caso de som com duração maior quando suspender a aplicação ou entrar em background, ele não
+    * vai parar o som. Existem eventos de estado da activity, como por exemplo, o Destroy() para poder
+    * manipular o som para parar música (stop()) ou aliviar da memória (release()) ou limpar da memória ou
+    * zerar usando o null. */
+
+    @Override
+    protected void onDestroy() {
+
+        if(mediaPlayer != null){
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+
+        super.onDestroy();
     }
 }
